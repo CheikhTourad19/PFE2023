@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('idAnnonce');
             $table->foreign('idAnnonce')->references('id')->on('annonce')->onDelete('cascade');
             $table->string('url_images')->unique();
-            // Add other columns as needed
             $table->timestamps();
         });
     }
