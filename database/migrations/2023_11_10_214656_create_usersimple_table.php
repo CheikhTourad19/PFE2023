@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usersimple', function (Blueprint $table) {
-            $table->id('idUser');
-            $table->string('name');
+            $table->id();
+            $table->string('login');
             $table->string('password');
             $table->string('nom_complet');
             $table->string('telephone');
             $table->string('email');
             // Add other columns as needed
             $table->timestamps();
-            $table->engine = 'InnoDB';
 
-            $table->timestamps();
+
+
         });
     }
 
