@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('annonce', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('idUser');
-            $table->foreign('idUser')->references('id')->on('usersimple');
+            $table->foreign('idUser')->references('id')->on('users');
             $table->string('titre');
             $table->text('description');
             $table->decimal('prix',10);
