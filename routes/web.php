@@ -15,12 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $annonces = \App\Models\User::join('annonce as a', 'users.id', '=', 'a.idUser')->orderBy('a.created_at', 'asc')
+        ->select('users.name', 'a.titre', 'a.description')->get();
+
+
+    return view('welcome',compact('annonces'));
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $userinfo = auth()->user();
+    $publications = [];
+    if ($userinfo) {
+        $publications = \App\Models\annonce::where('idUser', $userinfo->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+    }
+
+    return view('dashboard', compact('publications', 'userinfo'));
+
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
