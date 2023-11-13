@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/', function () {
 
-    $annonces = \App\Models\User::join('annonce as a', 'users.id', '=', 'a.idUser')->orderBy('a.created_at', 'asc')
+    $annonces = User::join('annonce as a', 'users.id', '=', 'a.idUser')->orderBy('a.created_at', 'asc')
         ->select('users.name', 'a.titre', 'a.description')->get();
 
 
