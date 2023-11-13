@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
     $userinfo = auth()->user();
     $publications = [];
     if ($userinfo) {
-        $publications = \App\Models\annonce::where('idUser', $userinfo->id)
+        $publications = \App\Models\Annonce::where('idUser', $userinfo->id)
             ->orderBy('created_at', 'desc')
             ->get();
     }
