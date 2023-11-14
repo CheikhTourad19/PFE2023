@@ -19,6 +19,7 @@ return new class extends Migration
             $table->Text('description');
             $table->decimal('prix',10);
             $table->string('categorie');
+            $table->boolean('statu')->default(false);
             $table->timestamps();
 
         });

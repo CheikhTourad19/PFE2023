@@ -39,6 +39,8 @@ class AnnonceResource extends Resource
                 Forms\Components\TextInput::make('categorie')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Toggle::make('statu')
+                    ->required(),
             ]);
     }
 
@@ -56,6 +58,8 @@ class AnnonceResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('categorie')
                     ->searchable(),
+                Tables\Columns\IconColumn::make('statu')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
