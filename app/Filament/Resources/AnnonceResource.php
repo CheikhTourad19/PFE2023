@@ -23,7 +23,22 @@ class AnnonceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('idUser')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('titre')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->required()
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('prix')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('categorie')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -31,7 +46,24 @@ class AnnonceResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('idUser')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('titre')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('prix')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('categorie')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
