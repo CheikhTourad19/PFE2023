@@ -13,7 +13,5 @@ class Annonce extends Model
 
         'idUser','titre','description','prix','categorie','statu'
 
-
-
     ];
 }
