@@ -22,25 +22,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 Route::get('/', function () {
 
-    $annonces = User::join('annonce as a', 'users.id', '=', 'a.idUser')->orderBy('a.created_at', 'asc')
-        ->select('users.name', 'a.titre', 'a.description')->get();
-
-
-    return view('welcome',compact('annonces'));
+    return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    $userinfo = auth()->user();
-    $publications = [];
-    if ($userinfo) {
-        $publications = \App\Models\Annonce::where('idUser', $userinfo->id)
-            ->orderBy('created_at', 'desc')
-            ->get();
-    }
 
-    return view('dashboard', compact('publications', 'userinfo'));
+
+Route::get('/dashboard', function () {
+$username=auth()->user()->getAuthIdentifierName();
+    return view('dashboard',compact('username'));
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 

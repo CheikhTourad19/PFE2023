@@ -20,7 +20,6 @@
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
-                        <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Accueil</a>
                         <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Mon profil</a>
                     @else
                         <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Se connecter</a>
@@ -32,15 +31,7 @@
                 </div>
             @endif
 
-            @foreach($annonces as $annonce)
-                <div style="width: 100%">
-                  <h3> {{$annonce->titre}} </h3>
-                  <p>Prix : {{$annonce->prix}} FCFA</p>
-                  <p>Par : {{$annonce->name}}</p>
 
-                </div><br>
-
-            @endforeach
 
         </div>
     </body>

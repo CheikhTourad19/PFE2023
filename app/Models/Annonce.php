@@ -9,4 +9,11 @@ class Annonce extends Model
 {
     protected $table ='annonce';
     use HasFactory;
+    protected $fillable = [
+
+        'idUser','titre','description','prix','categorie','statu'
+
+
+
+    ];
 }

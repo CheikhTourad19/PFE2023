@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -22,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail,FilamentUser
      * @var array<int, string>
      */
     protected $fillable = [
+
         'name',
         'email',
         'password',
