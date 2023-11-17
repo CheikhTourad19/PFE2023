@@ -48,4 +48,6 @@ Route::get('/userfavoris', function () {
 
 })->middleware(['auth', 'verified'])->name('userfavoris');
 
+
+
 require __DIR__.'/auth.php';
