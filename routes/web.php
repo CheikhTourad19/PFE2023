@@ -31,11 +31,21 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-$username=auth()->user()->getAuthIdentifierName();
-    return view('dashboard',compact('username'));
+$user=auth()->user();
+    return view('dashboard',['user' => $user]);
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/userannonce', function () {
 
+    return view('userannonce');
+
+})->middleware(['auth', 'verified'])->name('userannonce');
+
+Route::get('/userfavoris', function () {
+
+    return view('userfavoris');
+
+})->middleware(['auth', 'verified'])->name('userfavoris');
 
 require __DIR__.'/auth.php';

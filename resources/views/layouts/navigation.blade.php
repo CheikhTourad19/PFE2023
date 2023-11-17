@@ -17,12 +17,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                    <x-nav-link :href="route('userannonce')" :active="request()->routeIs('userannonces')">
                         {{ __('Mes Annonces') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                    <x-nav-link :href="route('userfavoris')" :active="request()->routeIs('userfavoris')">
                         {{ __('Mes Favoris') }}
                     </x-nav-link>
                 </div>
@@ -82,10 +82,10 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Profil') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+            <x-responsive-nav-link :href="route('userannonce')" :active="request()->routeIs('userannonce')">
                 {{ __('Mes Annonces') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+            <x-responsive-nav-link :href="route('userfavoris')" :active="request()->routeIs('userfavoris')">
                 {{ __('Mes Favoris') }}
             </x-responsive-nav-link>
         </div>
@@ -102,10 +102,10 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profil') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                <x-responsive-nav-link :href="route('userannonce')" :active="request()->routeIs('userannonces')">
                         {{ __('Mes Annonces') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                <x-responsive-nav-link :href="route('userfavoris')" :active="request()->routeIs('userfavoris')">
                         {{ __('Mes Favoris') }}
                 </x-responsive-nav-link>
 
