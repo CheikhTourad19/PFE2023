@@ -37,8 +37,8 @@ $user=auth()->user();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/userannonce', function () {
-
-    return view('userannonce');
+    $userannonces = \App\Models\Annonce::where('idUser', auth()->id())->get();
+    return view('userannonce',compact('userannonces'));
 
 })->middleware(['auth', 'verified'])->name('userannonce');
 
