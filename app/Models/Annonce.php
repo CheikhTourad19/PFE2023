@@ -14,4 +14,8 @@ class Annonce extends Model
         'idUser','titre','description','prix','categorie','statu'
 
     ];
+    public function image()
+    {
+        return $this->hasMany(Image::class, 'IdAnnonce', 'id');
+    }
 }

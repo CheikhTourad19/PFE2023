@@ -37,9 +37,10 @@ $user=auth()->user();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/userannonce', function () {
-    $userannonces = \App\Models\Annonce::where('idUser', auth()->id())->get();
-    return view('userannonce',compact('userannonces'));
 
+    $userannonces = \App\Models\Annonce::with('Image')->where('idUser', auth()->id())->get();
+
+    return view('userannonce', compact('userannonces'));
 })->middleware(['auth', 'verified'])->name('userannonce');
 
 Route::get('/userfavoris', function () {

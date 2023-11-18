@@ -13,4 +13,11 @@ class Image extends Model
 
         'url_image','idAnnonce','idUser'
     ];
+    public function annonce()
+    {
+        return $this->belongsTo(Annonce::class, 'IdAnnonce', 'id');
+    }
+    public function users(){
+        return $this->belongsTo(User::class,'IdUser','id');
+    }
 }
