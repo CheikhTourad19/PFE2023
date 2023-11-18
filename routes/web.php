@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
 $user=auth()->user();
-    return view('profile.edit',['user' => $user]);
+    return view('dashboard',['user' => $user]);
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 
