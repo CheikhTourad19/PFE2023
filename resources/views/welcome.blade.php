@@ -37,5 +37,40 @@
             @endif
 
     </div>
+
+    <div >
+
+            <ul>
+                @foreach($annonces as $annonce)
+                    <li class="mb-4">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+                            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $annonce->titre }}</h2>
+                            <p class="text-gray-600 dark:text-gray-300">{{ $annonce->prix }}</p>
+
+                            <!-- Display user information -->
+                            <p class="text-gray-700 dark:text-gray-300">Publié Par : {{ $annonce->user->name }}</p>
+
+                            <!-- Display images for the current annonce -->
+                            @if(count($annonce->image) > 0)
+                                <div class="mt-4">
+                                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Images:</h3>
+                                    <ul>
+                                        @foreach($annonce->image as $image)
+                                            <li>
+                                                <img src="{{  $image->url_images}}" alt="Image">
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @else
+                                <p>pas d'images pour cette annonce</p>
+                            @endif
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+
+    </div>
+
     </body>
 </html>

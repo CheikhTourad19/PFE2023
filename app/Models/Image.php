@@ -11,13 +11,11 @@ class Image extends Model
     use HasFactory;
     protected $fillable = [
 
-        'url_image','idAnnonce','idUser'
+        'url_images','idAnnonce','idUser'
     ];
     public function annonce()
     {
         return $this->belongsTo(Annonce::class, 'IdAnnonce', 'id');
     }
-    public function users(){
-        return $this->belongsTo(User::class,'IdUser','id');
-    }
+
 }

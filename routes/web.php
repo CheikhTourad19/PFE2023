@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Models\Annonce;
+use App\Models\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +26,8 @@ Route::middleware(['auth','verified'])->group(function () {
 });
 
 Route::get('/', function () {
-
-    return view('welcome');
+    $annonces = \App\Models\Annonce::with('user', 'image')->get();
+    return view('welcome',compact('annonces'));
 })->name('welcome');
 
 

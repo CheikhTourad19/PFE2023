@@ -14,8 +14,14 @@ class Annonce extends Model
         'idUser','titre','description','prix','categorie','statu'
 
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'idUser', 'id');
+    }
     public function image()
     {
         return $this->hasMany(Image::class, 'IdAnnonce', 'id');
     }
+    protected $with = ['image'];
 }
+
