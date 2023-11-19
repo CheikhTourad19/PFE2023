@@ -23,6 +23,7 @@ class AnnonceResource extends Resource
     {
         return $form
             ->schema([
+
                 Forms\Components\TextInput::make('idUser')
                     ->required()
                     ->numeric(),
@@ -48,6 +49,9 @@ class AnnonceResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable()
+                    ->numeric(),
                 Tables\Columns\TextColumn::make('idUser')
                     ->numeric()
                     ->sortable(),
