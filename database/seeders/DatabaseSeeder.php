@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Annonce;
 use App\Models\Image;
 use App\Models\User;
+use Database\Factories\AnnonceFactory;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -16,18 +17,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $adminUser=User::factory()->create([
-           'email'=> 'admin@example.com',
-           'name'=>'Admin',
-           'prenom'=>'user',
-           'telephone'=>'777520643',
-           'password'=>bcrypt('admin123')
-        ]);
-        $adminRole = Role::create(['name'=>'admin']);
-        $adminUser->assignRole($adminRole);
-         \App\Models\User::factory(10)->create();
-         Annonce::factory(10)->create();
-         Image::factory(10)->create();
+       // $adminUser=User::factory()->create([
+         //  'email'=> 'admin@example.com',
+          // 'name'=>'Admin',
+         //  'prenom'=>'user',
+         //  'telephone'=>'777520643',
+         //  'password'=>bcrypt('admin123')
+        // ]);
+        //$adminRole = Role::create(['name'=>'admin']);
+       // $adminUser->assignRole($adminRole);
+
+        \App\Models\Annonce::factory(10)->create();
+         //Image::factory(10)->create();
 
 
         // \App\Models\User::factory()->create([

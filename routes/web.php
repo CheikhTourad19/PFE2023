@@ -25,6 +25,12 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware(['auth','verified'])->group(function () {
+
+    Route::put('/userannonce', [AnnonceController::class, 'update'])->name('annonces.update');
+    Route::delete('/userannonce', [AnnonceController::class, 'delete'])->name('annonces.delete');
+
+});
 
 
 
@@ -47,12 +53,6 @@ Route::get('/userannonce', function () {
 
     return view('userannonce', compact('userannonces'));
 })->middleware(['auth', 'verified'])->name('userannonce');
-
-Route::middleware(['auth','verified'])->group(function () {
-    Route::put('/userannonce', [AnnonceController::class, 'update'])->name('annonces.update');
-
-    Route::delete('/userannonce', [AnnonceController::class, 'supprimer'])->name('annonces.supprimer');
-});
 
 Route::get('/userfavoris', function () {
 

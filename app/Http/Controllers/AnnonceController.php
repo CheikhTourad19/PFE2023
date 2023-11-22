@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AnnonceController extends Controller
 {
-    public function supprimer(Request $request)
+    public function delete(Request $request)
     {
         $id = $request->input('id');
         $annonce = Annonce::findOrFail($id);
@@ -16,7 +16,7 @@ class AnnonceController extends Controller
         $annonce->delete();
 
 
-        return redirect()->route('userannonce')->with('success', 'Annonce supprimée avec succès');
+        return redirect()->route('userannonce');
     }
     public function update(Request $request)
     {
@@ -41,7 +41,7 @@ class AnnonceController extends Controller
         // Enregistrer les modifications
         $annonce->save();
 
-        return redirect()->route('userannonce')->with('success', 'Annonce mise à jour avec succès');
+        return redirect()->route('userannonce')->with('id','');
     }
 }
 
