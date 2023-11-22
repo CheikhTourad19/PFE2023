@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Models\Annonce;
 use App\Models\Image;
+use App\Http\Controllers\AnnonceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 Route::get('/', function () {
     $annonces = \App\Models\Annonce::with('user', 'image')->get();
@@ -45,11 +48,22 @@ Route::get('/userannonce', function () {
     return view('userannonce', compact('userannonces'));
 })->middleware(['auth', 'verified'])->name('userannonce');
 
+Route::middleware(['auth','verified'])->group(function () {
+    Route::put('/userannonce', [AnnonceController::class, 'update'])->name('annonces.update');
+
+    Route::delete('/userannonce', [AnnonceController::class, 'supprimer'])->name('annonces.supprimer');
+});
+
 Route::get('/userfavoris', function () {
 
     return view('userfavoris');
 
 })->middleware(['auth', 'verified'])->name('userfavoris');
+Route::get('/addannonce', function () {
+
+    return view('addannonce');
+
+})->middleware(['auth', 'verified'])->name('addannonce');
 
 
 

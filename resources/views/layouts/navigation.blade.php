@@ -26,6 +26,11 @@
                         {{ __('Mes Favoris') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('addannonce')" :active="request()->routeIs('addannonce')">
+                        {{ __('Ajouter Annonce') }}
+                    </x-nav-link>
+                </div>
             </div>
 
 
@@ -87,6 +92,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('userfavoris')" :active="request()->routeIs('userfavoris')">
                 {{ __('Mes Favoris') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('addannonce')" :active="request()->routeIs('addannonce')">
+                {{ __('Ajouter Annonce') }}
             </x-responsive-nav-link>
         </div>
 
