@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Annonce;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -23,7 +25,10 @@ class DatabaseSeeder extends Seeder
         ]);
         $adminRole = Role::create(['name'=>'admin']);
         $adminUser->assignRole($adminRole);
-        // \App\Models\User::factory(10)->create();
+         \App\Models\User::factory(10)->create();
+         Annonce::factory(10)->create();
+         Image::factory(10)->create();
+
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

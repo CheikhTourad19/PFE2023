@@ -8,25 +8,22 @@
 
         <ul>
             @foreach($userannonces as $annonce)
-                <li class="mb-4">
+                <li class="mb- dd4">
 
                     <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
                         <div id="annonce-{{ $annonce->id }}">
                         <h2 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $annonce->titre }}</h2>
                         <p class="text-gray-600 dark:text-gray-300">Prix :{{ $annonce->prix }} FCFA</p>
-                        @if(count($annonce->image) > 0)
                             <div class="mt-4">
                                 <ul>
                                     @foreach($annonce->image as $image)
                                         <li>
-                                            <img style="width: 100px "  src="{{  $image->url_images }}" alt="Image">
+                                            <img style="width: 100px "  src="{{  $image->url_images }}" alt="pas d'image">
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
-                        @else
-                            <h3>Cette annonce ne contient pas d'images</h3>
-                        @endif
+
                         <x-danger-button
                             x-data=""
                             x-on:click.prevent="$dispatch('open-modal', 'confirm-annonce-deletion')"

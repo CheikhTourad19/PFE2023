@@ -50,7 +50,7 @@
                                     <ul>
                                         @foreach($annonce->image as $image)
                                             <li>
-                                                <img src="{{  $image->url_images}}" alt="Image">
+                                                <img src="{{  $image->url_images}}" alt=" image">
                                             </li>
                                         @endforeach
                                     </ul>
