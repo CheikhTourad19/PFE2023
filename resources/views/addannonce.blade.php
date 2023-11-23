@@ -4,9 +4,9 @@
             {{ __('Ajouter Annonce') }}
         </h2>
     </x-slot>
-    <form method="post"  class="p-6">
+    <form method="post" action="{{ route('annonces.update')}}" class="p-6">
         @csrf
-        @method('put')
+
 
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('ajouter annonce') }}
@@ -19,6 +19,7 @@
             name="titre"
             type="text"
             class="mt-1 block w-3/4"
+            required
 
         />
 
@@ -28,7 +29,7 @@
         <div class="mt-6">
             <x-input-label for="categorie" value="{{ __('Catégorie') }}" />
 
-            <select id="categorie" name="categorie" class="mt-1 block w-3/4">
+            <select id="categorie" name="categorie" class="mt-1 block w-3/4" >
                 <option value="option1" >Option 1</option>
                 <option value="option2" }>Option 2</option>
                 <option value="option3" >Option 3</option>
@@ -43,7 +44,7 @@
             name="prix"
             type="decimal"
             class="mt-1 block w-3/4"
-
+            required
         />
 
         <x-primary-button class="ms-3">

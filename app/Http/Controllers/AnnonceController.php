@@ -4,9 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnnonceController extends Controller
 {
+    public function store(Request $request){
+        $validatedData = $request->validate([
+            'titre' => 'required|string|max:255',
+            'description' => 'required|string',
+            'categorie' => 'required|string|in:option1,option2,option3,option4',
+            'prix' => 'required|numeric',
+        ]);
+        $statu=false;
+        $userId = Auth::id();
+        $validatedData['idUser']=$userId;
+        $validatedData['statu']=$statu;
+        $annonce = Annonce::create($validatedData);
+        return redirect()->route('userannonce');
+
+    }
     public function delete(Request $request)
     {
         $id = $request->input('id');

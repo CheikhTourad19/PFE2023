@@ -29,6 +29,7 @@ Route::middleware(['auth','verified'])->group(function () {
 
     Route::put('/userannonce', [AnnonceController::class, 'update'])->name('annonces.update');
     Route::delete('/userannonce', [AnnonceController::class, 'delete'])->name('annonces.delete');
+    Route::post('/userannonce', [AnnonceController::class, 'store'])->name('annonces.store');
 
 });
 
