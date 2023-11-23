@@ -251,6 +251,7 @@ Alternatively if you want to just have a single hero
                 <p class="pt-1 text-gray-900">{{ $annonce->prix }}.fcfa</p>
 
                     <p>Publié Par : {{ $annonce->user->name }}</p>
+                <p>{{$annonce->created_at}}</p>
 
                 </div>
             @endforeach
