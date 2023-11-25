@@ -50,7 +50,7 @@ $user=auth()->user();
 
 Route::get('/userannonce', function () {
 
-    $userannonces = \App\Models\Annonce::with('Image')->where('idUser', auth()->id())->get();
+    $userannonces = \App\Models\Annonce::with('images')->where('user_id', auth()->id())->get();
 
     return view('userannonce', compact('userannonces'));
 })->middleware(['auth', 'verified'])->name('userannonce');
