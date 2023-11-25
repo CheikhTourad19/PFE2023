@@ -36,8 +36,8 @@ Route::middleware(['auth','verified'])->group(function () {
 
 
 Route::get('/', function () {
-    $annonces = \App\Models\Annonce::with('user', 'image')->get();
-    return view('welcome',compact('annonces'));
+    $annonces = \App\Models\Annonce::with('images', 'user')->get();
+    return view('welcome', compact('annonces'));
 })->name('welcome');
 
 

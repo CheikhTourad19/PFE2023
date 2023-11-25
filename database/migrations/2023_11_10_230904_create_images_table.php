@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idAnnonce');
-            $table->foreign('idAnnonce')->references('id')->on('annonce')->onDelete('cascade');
-            $table->unsignedBigInteger('idUser');
-            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
-            $table->string('url_images')->unique();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('url_image')->unique();
             $table->timestamps();
+
         });
     }
 

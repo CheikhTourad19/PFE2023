@@ -13,9 +13,9 @@ class Image extends Model
 
         'url_images','idAnnonce','idUser'
     ];
-    public function annonce()
+    public function annonces()
     {
-        return $this->belongsTo(Annonce::class, 'IdAnnonce', 'id');
+        return $this->belongsToMany(Annonce::class, 'annonce_images', 'image_id', 'annonce_id');
     }
 
 }

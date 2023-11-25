@@ -2,8 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Foundation\Application;
+use App\Models\Image;
 
 class Annonce extends Model
 {
@@ -14,14 +19,19 @@ class Annonce extends Model
         'idUser','titre','description','prix','categorie','statu'
 
     ];
+
+
     public function user()
     {
-        return $this->belongsTo(User::class, 'idUser', 'id');
+        return $this->belongsTo(User::class, );
     }
-    public function image()
+    public function images()
     {
-        return $this->hasMany(Image::class, 'IdAnnonce', 'id');
+        return $this->belongsToMany(Image::class, 'annonce_images');
     }
-    protected $with = ['image'];
+
+
+    protected $with = ['images'];
 }
+
 

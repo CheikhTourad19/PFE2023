@@ -55,6 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail,FilamentUser
         'password' => 'hashed',
     ];
 
+    public static function inRandomOrder()
+    {
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->hasRole('admin');

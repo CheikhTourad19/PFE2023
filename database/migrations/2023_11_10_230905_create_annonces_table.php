@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('annonce', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idUser');
-            $table->foreign('idUser')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('titre');
-            $table->Text('description');
-            $table->decimal('prix',10);
+            $table->text('description');
+            $table->decimal('prix',);
             $table->string('categorie');
             $table->boolean('statu')->default(false);
             $table->timestamps();

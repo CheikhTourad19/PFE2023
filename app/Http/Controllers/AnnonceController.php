@@ -34,6 +34,11 @@ class AnnonceController extends Controller
 
         return redirect()->route('userannonce');
     }
+    public function showAnnoncesWithImages()
+    {
+        $annonces = Annonce::with('image')->get();
+        return view('layouts.home', ['annonces' => $annonces]);
+    }
     public function update(Request $request)
     {
         $id = $request->input('id');
