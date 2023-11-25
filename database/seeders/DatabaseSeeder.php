@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       $adminUser=User::factory()->create([
+       /*$adminUser=User::factory()->create([
          'email'=> 'admin@example.com',
            'name'=>'Admin',
          'prenom'=>'user',
@@ -27,13 +27,13 @@ class DatabaseSeeder extends Seeder
            'password'=>bcrypt('admin123')
          ]);
         $adminRole = Role::create(['name'=>'admin']);
-       $adminUser->assignRole($adminRole);
+       $adminUser->assignRole($adminRole);*/
         Image::factory(10)->create();
         Annonce::factory(10)->create();
         $annonces = Annonce::factory(10)->create();
 
         // Créer 20 images
-        $images = Image::factory(20)->create();
+        $images = Image::factory(10)->create();
         $annonces->each(function ($annonce) use ($images) {
             // Prendre des images aléatoires
             $randomImages = $images->random(random_int(1, 5));

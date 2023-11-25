@@ -23,13 +23,13 @@ class ImageResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('idAnnonce')
+                Forms\Components\TextInput::make('id')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('idUser')
+                Forms\Components\TextInput::make('user_id')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('url_images')
+                Forms\Components\TextInput::make('url_image')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -39,10 +39,10 @@ class ImageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('idAnnonce')
+                Tables\Columns\TextColumn::make('id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('idUser')
+                Tables\Columns\TextColumn::make('user_id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('url_images')
