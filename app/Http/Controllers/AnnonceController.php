@@ -17,7 +17,7 @@ class AnnonceController extends Controller
         ]);
         $statu=false;
         $userId = Auth::id();
-        $validatedData['idUser']=$userId;
+        $validatedData['user_id']=$userId;
         $validatedData['statu']=$statu;
         $annonce = Annonce::create($validatedData);
         return redirect()->route('userannonce');

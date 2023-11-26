@@ -12,12 +12,12 @@ use App\Models\Image;
 
 class ImageSlider extends Component
 {
-    public  $images;
+    public $images;
 
     public function mount()
     {
         // Récupérer toutes les images depuis la base de données
-        return $this->images = Image::all();
+        $this->images = Image::all();
     }
 
     public function render(): Application|Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
